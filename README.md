@@ -5,8 +5,8 @@ Convertit en masse des pages HTML (par exemple des pages web enregistrées) en f
 ## Prérequis
 
 - Python >= 3.12
-- [uv](https://docs.astral.sh/uv/) (recommandé, un `uv.lock` est fourni)
-- Dépendances : `docling`, `beautifulsoup4`, `lxml`
+- [uv](https://docs.astral.sh/uv/) : toutes les commandes se lancent via `uv` (un `uv.lock` est fourni)
+- Dépendances (gérées par `uv`) : `docling`, `beautifulsoup4`, `lxml`
 
 ## Installation
 
@@ -14,24 +14,10 @@ Convertit en masse des pages HTML (par exemple des pages web enregistrées) en f
 uv sync
 ```
 
-Ou, avec pip :
-
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install beautifulsoup4 docling lxml
-```
-
 ## Utilisation
 
 ```powershell
 uv run python convert.py [--input RÉPERTOIRE] [--output RÉPERTOIRE] [--remote-images]
-```
-
-Ou, dans l'environnement virtuel activé :
-
-```powershell
-python convert.py [--input RÉPERTOIRE] [--output RÉPERTOIRE] [--remote-images]
 ```
 
 ### Options
@@ -46,13 +32,13 @@ python convert.py [--input RÉPERTOIRE] [--output RÉPERTOIRE] [--remote-images]
 
 ```powershell
 # Conversion avec les répertoires par défaut (./source -> ./output)
-python convert.py
+uv run python convert.py
 
 # Répertoires personnalisés
-python convert.py --input C:\pages_web --output C:\markdown
+uv run python convert.py --input C:\pages_web --output C:\markdown
 
 # Avec téléchargement des images distantes
-python convert.py --input .\source --output .\output --remote-images
+uv run python convert.py --input .\source --output .\output --remote-images
 ```
 
 ## Fonctionnement
